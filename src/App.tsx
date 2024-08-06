@@ -1,5 +1,3 @@
-"use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -20,6 +18,7 @@ const FormSchema = z.object({
   name: z.string().min(3, {
     message: "Nome deve conter no mínimo 3 caracteres",
   }),
+  birthDate: z.string(),
 });
 
 export function App() {
@@ -27,6 +26,7 @@ export function App() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: "",
+      birthDate: new Date().toString(),
     },
   });
 
@@ -55,6 +55,23 @@ export function App() {
                   </FormControl>
                   <FormDescription>
                     Nome completo do responsável familiar
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="birthDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Data de Nascimento</FormLabel>
+                  <FormControl>
+                    <Input type="date" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    Data de nascimento do responsável familiar
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
