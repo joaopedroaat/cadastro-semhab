@@ -28,7 +28,7 @@ const FormSchema = z.object({
   birthDate: z.string(),
   sex: z.union([
     z.literal("male", {
-      message: "Valor inválido",
+      message: "Sexo deve ser especificado",
     }),
     z.literal("female"),
   ]),
