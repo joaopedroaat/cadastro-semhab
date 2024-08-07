@@ -22,7 +22,12 @@ import {
 } from "./components/ui/select";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { throws } from "assert";
+
+type UF = {
+  id: number;
+  acronym: string;
+  name: string;
+};
 
 const FormSchema = z.object({
   name: z.string().min(3, {
@@ -51,7 +56,7 @@ export function App() {
     },
   });
 
-  const { data } = useQuery({
+  const { data: states } = useQuery({
     queryKey: "states",
     queryFn: async () => {
       const response = await axios.get(
@@ -62,11 +67,22 @@ export function App() {
         throw new Error("Falha ao carregar os estados");
       }
 
-      return response.data;
+      const data = response.data as {
+        id: number;
+        nome: string;
+        sigla: string;
+      }[];
+
+      return data.map(
+        (val) =>
+          ({
+            id: val.id,
+            name: val.nome,
+            acronym: val.sigla,
+          }) as UF,
+      );
     },
   });
-
-  console.log(data);
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
@@ -169,6 +185,37 @@ export function App() {
                   </Select>
                   <FormDescription>
                     Nacionalidade do responsável familiar
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="nationality"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Estado de Nascimento</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione o estado de nascimento" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {states?.map((state) => (
+                        <SelectItem key={state.id} value={state.name}>
+                          {state.acronym}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>
+                    Estado de nascimento do responsável familiar
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
