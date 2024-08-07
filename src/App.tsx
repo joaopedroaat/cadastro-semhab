@@ -20,6 +20,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./components/ui/select";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { throws } from "assert";
 
 const FormSchema = z.object({
   name: z.string().min(3, {
@@ -47,6 +50,23 @@ export function App() {
       birthDate: new Date().toString(),
     },
   });
+
+  const { data } = useQuery({
+    queryKey: "states",
+    queryFn: async () => {
+      const response = await axios.get(
+        "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+      );
+
+      if (response.status !== 200) {
+        throw new Error("Falha ao carregar os estados");
+      }
+
+      return response.data;
+    },
+  });
+
+  console.log(data);
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
