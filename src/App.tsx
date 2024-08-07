@@ -53,26 +53,26 @@ export function App() {
               name="nationality"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Estado de Nascimento</FormLabel>
+                  <FormLabel>Nacionalidade</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione o estado de nascimento" />
+                        <SelectValue placeholder="Selecione a nacionalidade" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {states?.map((state) => (
-                        <SelectItem key={state.id} value={state.name}>
-                          {state.acronym}
-                        </SelectItem>
-                      ))}
+                      <SelectItem value="brazilian">Brasileira</SelectItem>
+                      <SelectItem value="brazilian naturalized">
+                        Brasileira naturalizado
+                      </SelectItem>
+                      <SelectItem value="foreign">Estrangeira</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormDescription>
-                    Estado de nascimento do responsável familiar
+                    Nacionalidade do responsável familiar
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
