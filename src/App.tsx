@@ -32,6 +32,11 @@ const FormSchema = z.object({
     }),
     z.literal("female"),
   ]),
+  nationality: z.union([
+    z.literal("brazilian", { message: "Nacionalidade deve ser especificada" }),
+    z.literal("brazilian naturalized"),
+    z.literal("foreign"),
+  ]),
 });
 
 export function App() {
@@ -113,6 +118,37 @@ export function App() {
                   </Select>
                   <FormDescription>
                     Sexo do responsável familiar
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="nationality"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nacionalidade</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione a nacionalidade" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="brazilian">Brasileira</SelectItem>
+                      <SelectItem value="brazilian naturalized">
+                        Brasileira naturalizado
+                      </SelectItem>
+                      <SelectItem value="foreign">Estrangeira</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>
+                    Nacionalidade do responsável familiar
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
