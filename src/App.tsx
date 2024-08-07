@@ -13,12 +13,25 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select";
 
 const FormSchema = z.object({
   name: z.string().min(3, {
     message: "Nome deve conter no mínimo 3 caracteres",
   }),
   birthDate: z.string(),
+  sex: z.union([
+    z.literal("male", {
+      message: "Valor inválido",
+    }),
+    z.literal("female"),
+  ]),
 });
 
 export function App() {
@@ -72,6 +85,34 @@ export function App() {
                   </FormControl>
                   <FormDescription>
                     Data de nascimento do responsável familiar
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="sex"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Sexo</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione o sexo" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="male">Masculino</SelectItem>
+                      <SelectItem value="female">Feminino</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>
+                    Sexo do responsável familiar
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
