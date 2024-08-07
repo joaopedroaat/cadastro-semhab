@@ -25,6 +25,7 @@ import { IBGEContext } from "./contexts/IBGEContext";
 import { FormContext } from "./contexts/FormContext";
 import { NameField } from "./components/fields/NameField";
 import { SexField } from "./components/fields/SexField";
+import { NationalityField } from "./components/fields/NationalityField";
 
 export function App() {
   const { states } = useContext(IBGEContext);
@@ -47,38 +48,7 @@ export function App() {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <NameField />
             <SexField />
-
-            <FormField
-              control={form.control}
-              name="nationality"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nacionalidade</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione a nacionalidade" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="brazilian">Brasileira</SelectItem>
-                      <SelectItem value="brazilian naturalized">
-                        Brasileira naturalizado
-                      </SelectItem>
-                      <SelectItem value="foreign">Estrangeira</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormDescription>
-                    Nacionalidade do responsável familiar
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
+            <NationalityField />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
