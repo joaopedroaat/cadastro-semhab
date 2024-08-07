@@ -23,6 +23,7 @@ import {
 import { useContext } from "react";
 import { IBGEContext } from "./contexts/IBGEContext";
 import { FormContext } from "./contexts/FormContext";
+import { NameField } from "./components/fields/NameField";
 
 export function App() {
   const { states } = useContext(IBGEContext);
@@ -43,40 +44,7 @@ export function App() {
       <main className="mt-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nome completo (sem abreviações)</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    Nome completo do responsável familiar
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="birthDate"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Data de Nascimento</FormLabel>
-                  <FormControl>
-                    <Input type="date" {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    Data de nascimento do responsável familiar
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
+            <NameField />
             <FormField
               control={form.control}
               name="sex"
