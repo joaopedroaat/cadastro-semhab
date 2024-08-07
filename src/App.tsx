@@ -22,37 +22,14 @@ import {
 } from "./components/ui/select";
 import { useContext } from "react";
 import { IBGEContext } from "./contexts/IBGEContext";
-
-const FormSchema = z.object({
-  name: z.string().min(3, {
-    message: "Nome deve conter no mínimo 3 caracteres",
-  }),
-  birthDate: z.string(),
-  sex: z.union([
-    z.literal("male", {
-      message: "Sexo deve ser especificado",
-    }),
-    z.literal("female"),
-  ]),
-  nationality: z.union([
-    z.literal("brazilian", { message: "Nacionalidade deve ser especificada" }),
-    z.literal("brazilian naturalized"),
-    z.literal("foreign"),
-  ]),
-});
+import { FormContext } from "./contexts/FormContext";
 
 export function App() {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: "",
-      birthDate: new Date().toString(),
-    },
-  });
-
   const { states } = useContext(IBGEContext);
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  const { form } = useContext(FormContext);
+
+  function onSubmit(data: any) {
     console.log(data);
   }
 
