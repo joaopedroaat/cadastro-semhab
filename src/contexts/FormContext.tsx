@@ -40,6 +40,7 @@ export function FormContextProvider({ children }: { children: ReactNode }) {
     defaultValues: {
       name: "",
       birthDate: new Date().toString(),
+      motherName: "",
     },
   });
 

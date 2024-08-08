@@ -7,6 +7,7 @@ import { SexField } from "./components/fields/SexField";
 import { NationalityField } from "./components/fields/NationalityField";
 import { StateOfBirth } from "./components/fields/StateOfBirth";
 import { CountyOfBirth } from "./components/fields/CountyOfBirth";
+import { MotherName } from "./components/fields/MotherName";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -30,6 +31,7 @@ export function App() {
             <NationalityField />
             <StateOfBirth />
             <CountyOfBirth />
+            <MotherName />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
