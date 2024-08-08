@@ -17,7 +17,7 @@ import {
 } from "../ui/select";
 import { IBGEContext } from "@/contexts/IBGEContext";
 
-export function CountyOfBirth() {
+export function CountyOfBirthField() {
   const { form } = useContext(FormContext);
   const { selectedFU, counties } = useContext(IBGEContext);
 

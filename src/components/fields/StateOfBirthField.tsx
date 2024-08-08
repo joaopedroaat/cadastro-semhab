@@ -17,7 +17,7 @@ import {
 } from "../ui/select";
 import { IBGEContext } from "@/contexts/IBGEContext";
 
-export function StateOfBirth() {
+export function StateOfBirthField() {
   const { form } = useContext(FormContext);
   const { states, handleFUChange } = useContext(IBGEContext);
   return (
