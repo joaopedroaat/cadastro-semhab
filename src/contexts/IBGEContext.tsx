@@ -40,14 +40,20 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
         sigla: string;
       }[];
 
-      return data.map(
-        (val) =>
-          ({
-            id: val.id,
-            name: val.nome,
-            acronym: val.sigla,
-          }) as FU,
-      );
+      return data
+        .map(
+          (val) =>
+            ({
+              id: val.id,
+              name: val.nome,
+              acronym: val.sigla,
+            }) as FU,
+        )
+        .sort((a, b) => {
+          if (a.acronym < b.acronym) return -1;
+          else if (a.acronym > b.acronym) return 1;
+          return 0;
+        });
     },
   });
 
