@@ -5,12 +5,18 @@ import { useQuery } from "react-query";
 export const IBGEContext = createContext(
   {} as {
     states?: FU[];
+    counties?: County[];
   },
 );
 
 type FU = {
   id: number;
   acronym: string;
+  name: string;
+};
+
+type County = {
+  id: number;
   name: string;
 };
 
@@ -43,10 +49,13 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     },
   });
 
+  const counties: County[] = [];
+
   return (
     <IBGEContext.Provider
       value={{
         states,
+        counties,
       }}
     >
       {children}
