@@ -49,7 +49,33 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     },
   });
 
-  const counties: County[] = [];
+  const { data: counties } = useQuery({
+    queryKey: "counties",
+    queryFn: async () => {
+      const response = await axios.get(
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/AL/municipios`,
+      );
+
+      if (response.status !== 200) {
+        throw new Error("Falha ao carregar os municípios");
+      }
+
+      const data = response.data as {
+        id: number;
+        nome: string;
+      }[];
+
+      return data.map(
+        (val) =>
+          ({
+            id: val.id,
+            name: val.nome,
+          }) as County,
+      );
+    },
+  });
+
+  console.log(counties);
 
   return (
     <IBGEContext.Provider
