@@ -19,6 +19,10 @@ const FormSchema = z.object({
     z.literal("brazilian naturalized"),
     z.literal("foreign"),
   ]),
+  placeOfBirth: z.object({
+    fu: z.string().min(2).max(2),
+    city: z.string().min(3),
+  }),
 });
 
 export const FormContext = createContext(
