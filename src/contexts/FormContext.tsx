@@ -20,7 +20,7 @@ const FormSchema = z.object({
     z.literal("foreign"),
   ]),
   placeOfBirth: z.object({
-    fu: z.string().min(2).max(2),
+    FU: z.string().min(2).max(2),
     city: z.string().min(3),
   }),
 });

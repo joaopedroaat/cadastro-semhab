@@ -23,7 +23,7 @@ export function StateOfBirth() {
   return (
     <FormField
       control={form.control}
-      name="placeOfBirth.fu"
+      name="placeOfBirth.FU"
       render={({ field }) => (
         <FormItem>
           <FormLabel>UF de nascimento</FormLabel>
