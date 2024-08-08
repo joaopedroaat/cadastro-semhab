@@ -4,11 +4,11 @@ import { useQuery } from "react-query";
 
 export const IBGEContext = createContext(
   {} as {
-    states?: UF[];
+    states?: FU[];
   },
 );
 
-type UF = {
+type FU = {
   id: number;
   acronym: string;
   name: string;
@@ -38,7 +38,7 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
             id: val.id,
             name: val.nome,
             acronym: val.sigla,
-          }) as UF,
+          }) as FU,
       );
     },
   });
