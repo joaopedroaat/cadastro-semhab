@@ -1,11 +1,12 @@
 import axios from "axios";
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { useQuery } from "react-query";
 
 export const IBGEContext = createContext(
   {} as {
     states?: FU[];
     counties?: County[];
+    handleFUChange: (FU: string) => void;
   },
 );
 
@@ -49,11 +50,15 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     },
   });
 
+  const [selectedFU, setSelectedFU] = useState("");
+
   const { data: counties } = useQuery({
     queryKey: "counties",
     queryFn: async () => {
+      if (!selectedFU) return;
+
       const response = await axios.get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/AL/municipios`,
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedFU}/municipios`,
       );
 
       if (response.status !== 200) {
@@ -75,13 +80,19 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     },
   });
 
-  console.log(counties);
+  const handleFUChange = (FU: string) => {
+    if (!FU) return;
+    if (FU.length < 2 || FU.length > 2) return;
+
+    setSelectedFU(FU);
+  };
 
   return (
     <IBGEContext.Provider
       value={{
         states,
         counties,
+        handleFUChange,
       }}
     >
       {children}
