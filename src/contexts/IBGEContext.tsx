@@ -6,6 +6,7 @@ export const IBGEContext = createContext(
   {} as {
     states?: FU[];
     counties?: County[];
+    selectedFU: string;
     handleFUChange: (FU: string) => void;
   },
 );
@@ -92,6 +93,7 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
       value={{
         states,
         counties,
+        selectedFU,
         handleFUChange,
       }}
     >
