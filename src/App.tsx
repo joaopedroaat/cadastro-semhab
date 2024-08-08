@@ -5,6 +5,7 @@ import { FormContext } from "./contexts/FormContext";
 import { NameField } from "./components/fields/NameField";
 import { SexField } from "./components/fields/SexField";
 import { NationalityField } from "./components/fields/NationalityField";
+import { StateOfBirth } from "./components/fields/StateOfBirth";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -26,6 +27,7 @@ export function App() {
             <NameField />
             <SexField />
             <NationalityField />
+            <StateOfBirth />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
