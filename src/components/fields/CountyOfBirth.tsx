@@ -21,7 +21,6 @@ export function CountyOfBirth() {
   const { form } = useContext(FormContext);
   const { selectedFU, counties } = useContext(IBGEContext);
 
-  console.log(!!selectedFU);
   return (
     <FormField
       control={form.control}

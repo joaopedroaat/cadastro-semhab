@@ -54,7 +54,7 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
   const [selectedFU, setSelectedFU] = useState("");
 
   const { data: counties } = useQuery({
-    queryKey: "counties",
+    queryKey: ["counties", selectedFU],
     queryFn: async () => {
       if (!selectedFU) return;
 
