@@ -26,6 +26,9 @@ const FormSchema = z.object({
   motherName: z.string().min(3, {
     message: "Nome da mãe deve conter no mínimo 3 caracteres",
   }),
+  document: z.object({
+    type: z.string(),
+  }),
 });
 
 export const FormContext = createContext(
