@@ -28,6 +28,7 @@ const FormSchema = z.object({
   }),
   document: z.object({
     type: z.string(),
+    serialNumber: z.coerce.number(),
   }),
 });
 
