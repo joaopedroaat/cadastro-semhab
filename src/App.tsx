@@ -26,7 +26,10 @@ export function App() {
 
       <main className="mt-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
+          <form
+            className="flex flex-col gap-4"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
             <NameField />
             <SexField />
             <NationalityField />
