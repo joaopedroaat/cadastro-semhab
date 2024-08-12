@@ -11,6 +11,7 @@ import { StateOfBirthField } from "./components/fields/StateOfBirthField";
 import { DocumentTypeField } from "./components/fields/DocumentTypeField";
 import { DocumentSerialNumberField } from "./components/fields/DocumentSerialNumberField";
 import { DocumentIssuerField } from "./components/fields/DocumentIssuerField";
+import { DocumentFUField } from "./components/fields/DocumentFUField";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -41,6 +42,7 @@ export function App() {
             <DocumentTypeField />
             <DocumentSerialNumberField />
             <DocumentIssuerField />
+            <DocumentFUField />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
