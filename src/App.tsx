@@ -7,7 +7,7 @@ import { SexField } from "./components/fields/SexField";
 import { NationalityField } from "./components/fields/NationalityField";
 import { CountyOfBirthField } from "./components/fields/CountyOfBirthField";
 import { MotherNameField } from "./components/fields/MotherNameField";
-import { StateOfBirthField } from "./components/fields/StateOfBirthField";
+import { FUOfBirthField } from "./components/fields/FUOfBirthField";
 import { DocumentTypeField } from "./components/fields/DocumentTypeField";
 import { DocumentSerialNumberField } from "./components/fields/DocumentSerialNumberField";
 import { DocumentIssuerField } from "./components/fields/DocumentIssuerField";
@@ -36,7 +36,7 @@ export function App() {
             <NameField />
             <SexField />
             <NationalityField />
-            <StateOfBirthField />
+            <FUOfBirthField />
             <CountyOfBirthField />
             <MotherNameField />
             <DocumentTypeField />
