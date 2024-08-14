@@ -12,6 +12,7 @@ import { DocumentTypeField } from "./components/fields/DocumentTypeField";
 import { DocumentSerialNumberField } from "./components/fields/DocumentSerialNumberField";
 import { DocumentIssuerField } from "./components/fields/DocumentIssuerField";
 import { DocumentFUField } from "./components/fields/DocumentFUField";
+import { BirthDateField } from "./components/fields/BirthDateField";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -34,6 +35,7 @@ export function App() {
             onSubmit={form.handleSubmit(onSubmit)}
           >
             <NameField />
+            <BirthDateField />
             <SexField />
             <NationalityField />
             <FUOfBirthField />

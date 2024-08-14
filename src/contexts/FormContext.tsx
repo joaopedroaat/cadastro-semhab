@@ -7,7 +7,7 @@ const FormSchema = z.object({
   name: z.string().min(3, {
     message: "Nome deve conter no mínimo 3 caracteres",
   }),
-  birthDate: z.string(),
+  birthDate: z.string().date(),
   sex: z.union([
     z.literal("male", {
       message: "Sexo deve ser especificado",
