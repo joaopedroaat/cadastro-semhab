@@ -26,7 +26,7 @@ export function DocumentFUField() {
       name="placeOfBirth.FU"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>UF</FormLabel>
+          <FormLabel>UF do documento</FormLabel>
           <Select
             onValueChange={(FU) => {
               field.onChange(...FU);
