@@ -31,6 +31,7 @@ const FormSchema = z.object({
     serialNumber: z.coerce.number(),
     issuer: z.string().min(2),
     FU: z.string().min(2).max(2),
+    issueDate: z.string().date()
   }),
 });
 
