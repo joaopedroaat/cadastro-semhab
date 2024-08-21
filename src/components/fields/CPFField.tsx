@@ -11,7 +11,7 @@ import {
 import { FormContext } from "@/contexts/FormContext";
 import { Input } from "../ui/input";
 
-export function CPF() {
+export function CPFField() {
   const { form } = useContext(FormContext);
   return (
     <FormField

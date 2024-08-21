@@ -10,7 +10,7 @@ import {
 import { FormContext } from "@/contexts/FormContext";
 import { Input } from "../ui/input";
 
-export function NIS() {
+export function NISField() {
   const { form } = useContext(FormContext);
   return (
     <FormField
