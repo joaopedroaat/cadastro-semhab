@@ -13,9 +13,9 @@ import { DocumentSerialNumberField } from "./components/fields/DocumentSerialNum
 import { DocumentIssuerField } from "./components/fields/DocumentIssuerField";
 import { DocumentFUField } from "./components/fields/DocumentFUField";
 import { BirthDateField } from "./components/fields/BirthDateField";
-import { DocumentIssueDate } from "./components/fields/DocumentIssueDate";
-import { NIS } from "./components/fields/NIS";
-import { CPF } from "./components/fields/CPF";
+import { DocumentIssueDateField } from "./components/fields/DocumentIssueDateField";
+import { NISField } from "./components/fields/NISField";
+import { CPFField } from "./components/fields/CPFField";
 import { OccupationField } from "./components/fields/OccupationField";
 
 export function App() {
@@ -49,9 +49,9 @@ export function App() {
             <DocumentSerialNumberField />
             <DocumentIssuerField />
             <DocumentFUField />
-            <DocumentIssueDate />
-            <NIS />
-            <CPF />
+            <DocumentIssueDateField />
+            <NISField />
+            <CPFField />
             <OccupationField />
             <Button className="mt-2" type="submit">
               Submit
