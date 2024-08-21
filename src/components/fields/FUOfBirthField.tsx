@@ -19,7 +19,7 @@ import { IBGEContext } from "@/contexts/IBGEContext";
 
 export function FUOfBirthField() {
   const { form } = useContext(FormContext);
-  const { states, handleFUChange } = useContext(IBGEContext);
+  const { states, handleBirthStateChange } = useContext(IBGEContext);
   return (
     <FormField
       control={form.control}
@@ -29,7 +29,7 @@ export function FUOfBirthField() {
           <FormLabel>UF de nascimento</FormLabel>
           <Select
             onValueChange={(FU) => {
-              handleFUChange(FU);
+              handleBirthStateChange(FU);
               field.onChange(...FU);
             }}
             defaultValue={field.value}
