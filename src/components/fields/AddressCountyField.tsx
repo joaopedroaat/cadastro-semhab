@@ -19,7 +19,7 @@ import { IBGEContext } from "@/contexts/IBGEContext";
 
 export function AddressCountyField() {
   const { form } = useContext(FormContext);
-  const { selectedFU, counties } = useContext(IBGEContext);
+  const { addressState, addressCounties } = useContext(IBGEContext);
 
   return (
     <FormField
@@ -31,7 +31,7 @@ export function AddressCountyField() {
           <Select
             onValueChange={field.onChange}
             defaultValue={field.value}
-            disabled={!selectedFU}
+            disabled={!addressState}
           >
             <FormControl>
               <SelectTrigger>
@@ -39,7 +39,7 @@ export function AddressCountyField() {
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              {counties?.map((county) => (
+              {addressCounties?.map((county) => (
                 <SelectItem key={county.id} value={county.name}>
                   {county.name}
                 </SelectItem>

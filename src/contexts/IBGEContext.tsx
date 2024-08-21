@@ -5,9 +5,13 @@ import { useQuery } from "react-query";
 export const IBGEContext = createContext(
   {} as {
     states?: FU[];
-    birthCounties?: County[];
     birthState: string;
+    birthCounties?: County[];
+    addressState: string;
+    addressCounties?: County[];
+
     handleBirthStateChange: (FU: string) => void;
+    handleAddressStateChange: (FU: string) => void
   },
 );
 
@@ -91,6 +95,7 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     }
   });
 
+
   const handleBirthStateChange = (FU: string) => {
     if (!FU) return;
     if (FU.length < 2 || FU.length > 2) return;
@@ -98,13 +103,33 @@ export function IBGEContextProvider({ children }: { children: ReactNode }) {
     setBirthState(FU);
   };
 
+  const [addressState, setAddressState] = useState("")
+  const { data: addressCounties } = useQuery({
+    queryKey: ["counties", addressState],
+    queryFn: async () => {
+      return fetchStatesByFU(addressState)
+    }
+  })
+
+  const handleAddressStateChange = (FU: string) => {
+    if (!FU) return;
+    if (FU.length < 2 || FU.length > 2) return;
+
+    setAddressState(FU);
+  }
+
+
   return (
     <IBGEContext.Provider
       value={{
         states,
         birthState,
         birthCounties,
+        addressState,
+        addressCounties,
+
         handleBirthStateChange,
+        handleAddressStateChange
       }}
     >
       {children}

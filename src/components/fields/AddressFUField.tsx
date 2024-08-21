@@ -19,7 +19,7 @@ import { IBGEContext } from "@/contexts/IBGEContext";
 
 export function AddressFUField() {
   const { form } = useContext(FormContext);
-  const { states, handleFUChange } = useContext(IBGEContext);
+  const { states, handleAddressStateChange } = useContext(IBGEContext);
   return (
     <FormField
       control={form.control}
@@ -29,7 +29,7 @@ export function AddressFUField() {
           <FormLabel>UF</FormLabel>
           <Select
             onValueChange={(FU) => {
-              handleFUChange(FU);
+              handleAddressStateChange(FU);
               field.onChange(...FU);
             }}
             defaultValue={field.value}
