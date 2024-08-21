@@ -36,7 +36,16 @@ const FormSchema = z.object({
   }),
   NIS: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" }),
   CPF: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" }),
-  occupation: z.string()
+  occupation: z.string(),
+  address: z.object({
+    street: z.string(),
+    number: z.coerce.number(),
+    complement: z.string(),
+    district: z.string(),
+    county: z.string(),
+    FU: z.string(),
+    CEP: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" })
+  })
 });
 
 export const FormContext = createContext(

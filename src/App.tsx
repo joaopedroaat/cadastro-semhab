@@ -17,6 +17,13 @@ import { DocumentIssueDateField } from "./components/fields/DocumentIssueDateFie
 import { NISField } from "./components/fields/NISField";
 import { CPFField } from "./components/fields/CPFField";
 import { OccupationField } from "./components/fields/OccupationField";
+import { AddressStreetField } from "./components/fields/AddressStreetField";
+import { AddressNumberField } from "./components/fields/AddressNumberField";
+import { AddressDistrictField } from "./components/fields/AddressDistrictField";
+import { AddressCountyField } from "./components/fields/AddressCountyField";
+import { AddressFUField } from "./components/fields/AddressFUField";
+import { AddressCEPField } from "./components/fields/AddressCEPField";
+import { AddressComplementField } from "./components/fields/AddressComplementField";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -53,6 +60,13 @@ export function App() {
             <NISField />
             <CPFField />
             <OccupationField />
+            <AddressStreetField />
+            <AddressNumberField />
+            <AddressComplementField />
+            <AddressDistrictField />
+            <AddressFUField />
+            <AddressCountyField />
+            <AddressCEPField />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
