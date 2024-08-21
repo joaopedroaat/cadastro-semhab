@@ -1,3 +1,4 @@
+import { isNumericString } from "@/utils/isNumericString";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createContext, ReactNode } from "react";
 import { useForm, UseFormReturn } from "react-hook-form";
@@ -33,6 +34,7 @@ const FormSchema = z.object({
     FU: z.string().min(2).max(2),
     issueDate: z.string().date()
   }),
+  NIS: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" })
 });
 
 export const FormContext = createContext(
