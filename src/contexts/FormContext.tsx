@@ -35,7 +35,8 @@ const FormSchema = z.object({
     issueDate: z.string().date()
   }),
   NIS: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" }),
-  CPF: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" })
+  CPF: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" }),
+  occupation: z.string()
 });
 
 export const FormContext = createContext(

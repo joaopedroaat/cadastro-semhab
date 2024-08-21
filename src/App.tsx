@@ -16,6 +16,7 @@ import { BirthDateField } from "./components/fields/BirthDateField";
 import { DocumentIssueDate } from "./components/fields/DocumentIssueDate";
 import { NIS } from "./components/fields/NIS";
 import { CPF } from "./components/fields/CPF";
+import { OccupationField } from "./components/fields/OccupationField";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -51,6 +52,7 @@ export function App() {
             <DocumentIssueDate />
             <NIS />
             <CPF />
+            <OccupationField />
             <Button className="mt-2" type="submit">
               Submit
             </Button>
