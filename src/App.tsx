@@ -24,6 +24,9 @@ import { AddressCountyField } from "./components/fields/AddressCountyField";
 import { AddressFUField } from "./components/fields/AddressFUField";
 import { AddressCEPField } from "./components/fields/AddressCEPField";
 import { AddressComplementField } from "./components/fields/AddressComplementField";
+import { ContactLandline } from "./components/fields/ContactLandline";
+import { ContactMobile } from "./components/fields/ContactMobile";
+import { ContactVoicemail } from "./components/fields/ContactVoicemail";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -67,6 +70,9 @@ export function App() {
             <AddressFUField />
             <AddressCountyField />
             <AddressCEPField />
+            <ContactLandline />
+            <ContactMobile />
+            <ContactVoicemail />
             <Button className="mt-2" type="submit">
               Submit
             </Button>

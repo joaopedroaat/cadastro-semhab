@@ -45,6 +45,11 @@ const FormSchema = z.object({
     county: z.string(),
     FU: z.string(),
     CEP: z.string().refine(val => isNumericString(val), { message: "Deve conter apenas números" })
+  }),
+  contact: z.object({
+    landline: z.string().optional(),
+    mobile: z.string().optional(),
+    voicemail: z.string().optional()
   })
 });
 
