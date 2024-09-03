@@ -18,7 +18,7 @@ export function AddressCEPField() {
       name="address.CEP"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Endereço</FormLabel>
+          <FormLabel>CEP</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>
