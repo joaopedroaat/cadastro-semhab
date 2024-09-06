@@ -17,7 +17,7 @@ const FormSchema = z.object({
   ]),
   nationality: z.union([
     z.literal("brazilian", { message: "Nacionalidade deve ser especificada" }),
-    z.literal("brazilian naturalized"),
+    z.literal("brazilian_naturalized"),
     z.literal("foreign"),
   ]),
   placeOfBirth: z.object({

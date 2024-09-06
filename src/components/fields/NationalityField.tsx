@@ -1,20 +1,13 @@
 import { useContext } from "react";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../ui/form";
 import { FormContext } from "@/contexts/FormContext";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
 export function NationalityField() {
   const { form } = useContext(FormContext);
@@ -23,25 +16,40 @@ export function NationalityField() {
       control={form.control}
       name="nationality"
       render={({ field }) => (
-        <FormItem>
+        <FormItem className="space-y-3">
           <FormLabel>Nacionalidade</FormLabel>
-          <Select onValueChange={field.onChange} defaultValue={field.value}>
-            <FormControl>
-              <SelectTrigger>
-                <SelectValue placeholder="Selecione a nacionalidade" />
-              </SelectTrigger>
-            </FormControl>
-            <SelectContent>
-              <SelectItem value="brazilian">Brasileira</SelectItem>
-              <SelectItem value="brazilian naturalized">
-                Brasileira naturalizado
-              </SelectItem>
-              <SelectItem value="foreign">Estrangeira</SelectItem>
-            </SelectContent>
-          </Select>
-          <FormDescription>
-            Nacionalidade do responsável familiar
-          </FormDescription>
+          <FormControl>
+            <RadioGroup
+              onValueChange={field.onChange}
+              defaultValue={field.value}
+              className="flex flex-col space-y-1"
+            >
+              <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="brazilian" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  Brasileira
+                </FormLabel>
+              </FormItem>
+              <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="brazilian_naturalized" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  Brasileira Naturalizado
+                </FormLabel>
+              </FormItem>
+              <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="foreign" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  Estrangeira
+                </FormLabel>
+              </FormItem>
+            </RadioGroup>
+          </FormControl>
           <FormMessage />
         </FormItem>
       )}
