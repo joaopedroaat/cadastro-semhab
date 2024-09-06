@@ -27,6 +27,7 @@ import { AddressComplementField } from "./components/fields/AddressComplementFie
 import { ContactLandline } from "./components/fields/ContactLandline";
 import { ContactMobile } from "./components/fields/ContactMobile";
 import { ContactVoicemail } from "./components/fields/ContactVoicemail";
+import { MaritalStatus } from "./components/fields/MaritalStatus";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -73,6 +74,8 @@ export function App() {
             <ContactLandline />
             <ContactMobile />
             <ContactVoicemail />
+            <MaritalStatus />
+
             <Button className="mt-2" type="submit">
               Submit
             </Button>

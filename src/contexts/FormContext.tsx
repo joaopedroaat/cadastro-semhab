@@ -50,7 +50,16 @@ const FormSchema = z.object({
     landline: z.string().optional(),
     mobile: z.string().optional(),
     voicemail: z.string().optional()
-  })
+  }),
+  maritalStatus: z.union([
+    z.literal("single"),
+    z.literal("divorced"),
+    z.literal("widowed"),
+    z.literal("domestic_partnership"),
+    z.literal("married_1"),
+    z.literal("married_2"),
+    z.literal("married_3"),
+  ])
 });
 
 export const FormContext = createContext(
