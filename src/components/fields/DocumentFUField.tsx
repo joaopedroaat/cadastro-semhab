@@ -20,16 +20,17 @@ import { IBGEContext } from "@/contexts/IBGEContext";
 export function DocumentFUField() {
   const { form } = useContext(FormContext);
   const { states } = useContext(IBGEContext);
+
   return (
     <FormField
       control={form.control}
-      name="placeOfBirth.FU"
+      name="document.FU"
       render={({ field }) => (
         <FormItem>
           <FormLabel>UF do documento</FormLabel>
           <Select
             onValueChange={(FU) => {
-              field.onChange(...FU);
+              field.onChange(FU);
             }}
             defaultValue={field.value}
           >
