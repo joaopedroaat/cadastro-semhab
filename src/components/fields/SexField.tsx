@@ -17,7 +17,7 @@ export function SexField() {
       name="sex"
       render={({ field }) => (
         <FormItem className="space-y-3">
-          <FormLabel>Estado Civil</FormLabel>
+          <FormLabel>Sexo</FormLabel>
           <FormControl>
             <RadioGroup
               onValueChange={field.onChange}
