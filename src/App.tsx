@@ -28,6 +28,7 @@ import { ContactLandline } from "./components/fields/ContactLandline";
 import { ContactMobile } from "./components/fields/ContactMobile";
 import { ContactVoicemail } from "./components/fields/ContactVoicemail";
 import { MaritalStatus } from "./components/fields/MaritalStatus";
+import { EducationalAttainmentField } from "./components/fields/EducationalAttainmentField";
 
 export function App() {
   const { form } = useContext(FormContext);
@@ -75,6 +76,7 @@ export function App() {
             <ContactMobile />
             <ContactVoicemail />
             <MaritalStatus />
+            <EducationalAttainmentField />
 
             <Button className="mt-2" type="submit">
               Submit

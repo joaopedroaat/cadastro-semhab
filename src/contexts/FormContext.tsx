@@ -59,7 +59,18 @@ const FormSchema = z.object({
     z.literal("married_1"),
     z.literal("married_2"),
     z.literal("married_3"),
-  ])
+  ]),
+  educationalAttainment: z.union([
+    z.literal("elementary1_complete"),
+    z.literal("elementary1_incomplete"),
+    z.literal("elementary2_complete"),
+    z.literal("elementary2_incomplete"),
+    z.literal("highschool_complete"),
+    z.literal("highschool_incomplete"),
+    z.literal("higher_education_complete"),
+    z.literal("higher_education_incomplete"),
+    z.literal("illiterate"),
+  ]),
 });
 
 export const FormContext = createContext(
